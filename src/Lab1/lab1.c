@@ -1,13 +1,16 @@
 void TwosComplement(const int input[8], int output[8]) {
 
   float x = Bin2Dec(input);
-  x = ~x;
+  // Flip x
+  // Add one
   AddOne(output);
-  return Dec2Bin(x, output);
+  Dec2Bin(x, output);
 
 }
 
 void AddOne(int output[8]) {
+
+  
 
 }
 
