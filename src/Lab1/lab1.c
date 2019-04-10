@@ -1,17 +1,15 @@
 void TwosComplement(const int input[8], int output[8]) {
 
   int overflow = 0;
-  for (int i = 7; i >= 0; i--) {
-    if (i == 7) {
-      output[i] = (input[i] == 0 ? 1 : 0);
-      if (output[i] == 1) {
-        overflow++;
-        output[i] = 0;
-      } else {
-        output[i] = 1;
-      }
-    } else {
-      output[i] = (input[i] == 0 ? 1 : 0);
+  output[7] = input[7] == 0 ? 1 : 0;
+  if (output[7] == 1) {
+    output[7] = 0;
+    overflow++;
+  } else {
+    output[7] = 1;
+  }
+  for (int i = 6; i >= 0; i--) {
+    output[i] = (input[i] == 0 ? 1 : 0);
       if (overflow > 0) {
         if (output[i] == 0) {
           overflow--;
@@ -21,7 +19,6 @@ void TwosComplement(const int input[8], int output[8]) {
           // Leave overflow for next iteration
         }
       }
-    }
   }
   if (overflow > 0) {
     // What to do?
