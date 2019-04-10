@@ -24,12 +24,6 @@ void TwosComplement(const int input[8], int output[8]) {
 
 }
 
-void AddOne(int output[8]) {
-
-  
-
-}
-
 float	Bin2Dec(const int bin[8]) {
 
   int polynomial = -bin[7];
