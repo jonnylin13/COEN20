@@ -23,13 +23,12 @@ float	Bin2Dec(const int bin[8]) {
 }
 void Dec2Bin(const float x, int bin[8]) {
 
-  bool neg = (x < 0);
   float xCopy = x * 128.0;
   int whole = (int) xCopy; // Always truncates
   float fraction = whole - xCopy; // Must be positive
 
   if (fraction >= 0.5) {
-    if (neg) {
+    if (x < 0) {
       whole -= 1;
     } else {
       whole += 1;
@@ -38,7 +37,7 @@ void Dec2Bin(const float x, int bin[8]) {
 
   int i = 0;
   while (xCopy >= 0.0) {
-    bin[i] = res % 2;
+    bin[i] = xCopy % 2;
     xCopy /= 2;
     i++;
   }
