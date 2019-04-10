@@ -1,28 +1,20 @@
 void TwosComplement(const int input[8], int output[8]) {
 
-  for (int i = 0; i < 8; i++) {
-    output[i] = input[i] == 0 ? 1 : 0;
-  }
-  int overflow = 0;
+  
+  int overflow = 1;
   for (int i = 7; i >= 0; i--) {
     // Handle each bit going right to left
+    int cursor = input[i] == 0 ? 1 : 0;
+    
     if (overflow > 0) {
-      if (output[i] == 1) {
-          overflow++;
-          output[i] = 0;
-        } else {
-          overflow--;
-          output[i] = 1;
-        }
-    } else {
-      if (i == 7 && output[i] == 1) {
-        output[i] = 0;
-        overflow = 1;
+      if (cursor == 1) {
+        cursor = 0;
       } else {
-        output[i] = 1;
-        overflow = 0;
+        cursor = 1;
+        overflow--;
       }
     }
+    output[i] = cursor;
     
   }
 
