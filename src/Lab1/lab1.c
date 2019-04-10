@@ -36,9 +36,9 @@ void Dec2Bin(const float x, int bin[8]) {
   }
 
   int i = 0;
-  while (xCopy >= 0.0) {
-    bin[i] = xCopy % 2;
-    xCopy /= 2;
+  while (whole >= 0.0) {
+    bin[i] = whole % 2;
+    whole /= 2;
     i++;
   }
 
