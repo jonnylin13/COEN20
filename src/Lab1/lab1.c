@@ -19,7 +19,10 @@ void TwosComplement(const int input[8], int output[8]) {
         }
       }
     }
-
+  }
+  if (overflow > 0) {
+    // What to do?
+    
   }
 
 }
