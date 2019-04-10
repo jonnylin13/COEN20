@@ -14,7 +14,6 @@
 #include <math.h>
 #include "library.h"
 #include "graphics.h"
-#include "lab1.c"
 
 extern void		TwosComplement(const int input[8], int output[8]) ;
 extern float	Bin2Dec(const int bin[8]) ;
