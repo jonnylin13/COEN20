@@ -3,11 +3,14 @@ void TwosComplement(const int input[8], int output[8]) {
   int overflow = 0;
   for (int i = 7; i >= 0; i--) {
     if (i == 7) {
-      if (input[i] == 1) {
+      output[i] = (input[i] == 0 ? 1 : 0);
+      if (output[i] == 1) {
         overflow++;
+        output[i] = 0;
+      } else {
+        output[i] = 1;
       }
     } else {
-      
       output[i] = (input[i] == 0 ? 1 : 0);
       if (overflow > 0) {
         if (output[i] == 0) {
