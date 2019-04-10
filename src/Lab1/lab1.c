@@ -8,8 +8,8 @@ void TwosComplement(const int input[8], int output[8]) {
   } else {
     output[7] = 1;
   }
-  for (int i = 6; i >= 0; i--) {
-    output[i] = (input[i] == 0 ? 1 : 0);
+  for (int i = 7; i >= 0; i--) {
+    output[i] = input[i] == 0 ? 1 : 0;
       if (overflow > 0) {
         if (output[i] == 0) {
           overflow--;
@@ -22,7 +22,7 @@ void TwosComplement(const int input[8], int output[8]) {
   }
   if (overflow > 0) {
     // What to do?
-    
+
   }
 
 }
