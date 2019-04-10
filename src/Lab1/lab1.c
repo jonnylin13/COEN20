@@ -1,10 +1,16 @@
 void TwosComplement(const int input[8], int output[8]) {
 
   float x = Bin2Dec(input);
-  x = ~x + 1;
+  x = ~x;
+  AddOne(output);
   return Dec2Bin(x, output);
 
 }
+
+void AddOne(int output[8]) {
+
+}
+
 float	Bin2Dec(const int bin[8]) {
 
   int polynomial = -bin[7];
@@ -12,6 +18,7 @@ float	Bin2Dec(const int bin[8]) {
     polynomial = 2 * polynomial + bin[i];
   }
   return polynomial / 128.0;
+
 
 }
 void Dec2Bin(const float x, int bin[8]) {
