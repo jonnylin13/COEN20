@@ -3,7 +3,7 @@ void TwosComplement(const int input[8], int output[8]) {
   
   int overflow = 1;
   for (int i = 0; i < 8; i++) {
-    // Handle each bit going right to left
+    // Handle each bit going right to left (MSB on left)
     int cursor = input[i] == 0 ? 1 : 0;
     
     if (overflow > 0) {
@@ -32,23 +32,25 @@ float	Bin2Dec(const int bin[8]) {
 }
 void Dec2Bin(const float x, int bin[8]) {
   // Would not display anything
-  float xCopy = x * 128.0;
-  int whole = (int) xCopy; // Always truncates
-  float fraction = whole - xCopy; // Must be positive
+  float _x = x * 128.0;
+  int whole = (int) _x; // Always truncates
+  float fraction = _x - whole;
 
-  if (fraction >= 0.5) {
-    if (x < 0) {
-      whole -= 1;
-    } else {
-      whole += 1;
+  if (fraction < 0) {
+    // Negative fraction
+    if (fraction <= -0.5) {
+      whole--;
+    }
+  } else {
+    // Positive fraction
+    if (fraction >= 0.5) {
+      whole++;
     }
   }
 
-  int i = 0;
-  while (whole >= 0.0) {
+  for (int i = 0; i < 8; i++) {
     bin[i] = whole % 2;
     whole /= 2;
-    i++;
   }
 
 }
