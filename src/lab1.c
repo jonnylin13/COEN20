@@ -31,7 +31,7 @@ float	Bin2Dec(const int bin[8]) {
 
 }
 void Dec2Bin(const float x, int bin[8]) {
-
+  // Would not display anything
   float xCopy = x * 128.0;
   int whole = (int) xCopy; // Always truncates
   float fraction = whole - xCopy; // Must be positive
