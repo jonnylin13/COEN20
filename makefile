@@ -8,9 +8,9 @@ AFLAGS=-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS=-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fsingle-precision-constant -std=c99 -O3 -Wall -ffunction-sections -fdata-sections -fno-strict-aliasing
 LFLAGS=-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 $(LIB) -lc -lnosys -lc -u _printf_float -Wl,-gc-sections -T linker.ld -Wl,-Map,$(MAP)
 
-CFILES=$(wildcard src/*.c)
-SFILES=$(wildcard src/*.s)
-OFILES=$(patsubst src/%.c,obj/%.o,$(CFILES)) $(patsubst src/%.s,obj/%.o,$(SFILES))
+CFILES=$(wildcard src/Lab1/*.c)
+SFILES=$(wildcard src/Lab1/*.s)
+OFILES=$(patsubst src/Lab1/%.c,obj/%.o,$(CFILES)) $(patsubst src/%.s,obj/%.o,$(SFILES))
 
 LIB	=	library.a
 ELF	=	output.elf
